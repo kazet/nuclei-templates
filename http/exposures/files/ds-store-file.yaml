@@ -25,6 +25,12 @@ http:
         condition: or
 
       - type: dsl
+        negative: true
+        dsl:
+          - "contains(to_lower(body), '\0<\0h\0t\0m\0l')"
+          - "contains(to_lower(body), '\0<\0b\0o\0d\0y')"
+
+      - type: dsl
         dsl:
           - 'status_code == 200'
 
